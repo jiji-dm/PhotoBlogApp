@@ -1,0 +1,21 @@
+from django.contrib import admin
+from .models import Category1, PhotoPost1
+
+class CategoryAdmin(admin.ModelAdmin):
+    #管理ページのレコード一覧に表示するカラムを設定するクラス
+    
+    #レコード一覧にidとtitleを表示
+    list_display = ('id', 'title')
+    #表示するカラムにリンクを表示
+    list_display_links = ('id', 'title')
+    
+class PhotoPostAdmin(admin.ModelAdmin):
+    #管理ページにレコード一覧に表示するカラムを設定するクラス
+    
+    #レコード一覧にidとtitleを表示
+    list_display = ('id', 'title')
+    list_display_links = ('id', 'title')
+    
+admin.site.register(Category1, CategoryAdmin)
+
+admin.site.register(PhotoPost1, PhotoPostAdmin)

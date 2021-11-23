@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Photo Detail{% endblock %}
+    
+    
+    {% block contents %}
+        <!--Bootstrapのグリッドシステム-->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col offset-3">
+                    
+                    
+                    <!--タイトル-->
+                    <h2>{{object.title}}</h2>
+
+                    <!--コメント-->
+                    <p>{{object.comment}}</p>
+                    <br>
+
+                    <!--投稿日時-->
+                    <p>{{object.posted_at}}に投稿</p>
+
+                    <!--一枚目の写真-->
+                    <div class="img_class">
+                        <p><img class="img1" src="{{object.image1.url}}"></img></p>
+
+                        <!--二枚目の写真 もしあったら-->
+                        
+                        {% if object.image2 %}
+                            <p><img class="img1" src="{{object.image2.url}}"></img></p>
+                        {% endif %}
+                    </div>
+
+                    
+                    {% if request.user == object.user %}
+                    <form method="POST">
+                        <!--リンク先のurl
+                            photo/<photo postsテーブルのid値>/delete-->
+                        <a href="{% url 'photo:photo_delete' object.pk %}"
+                            class="btn btn-primary my-2">削除</a>
+                    {% endif %}
+                        
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+        

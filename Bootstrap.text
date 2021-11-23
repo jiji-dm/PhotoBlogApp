@@ -1,0 +1,12 @@
+フォームを配置する際にBootstrapのグリッドシステムを適用して
+上下の余白(パディング)設定するようにしています。
+
+<div class="container"> グリッドシステムの適用文
+    <div class="row">  行要素の設定
+        <div class="col ___" 列要素の上下パディングの設定
+        </dev>
+    </div>
+</div>
+
+    Bootstrapのグリッドシステムへのページ
+        url = https://getbootstrap.jp/docs/5.0.layout/grid/

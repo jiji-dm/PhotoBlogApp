@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Sing up{% endblock %}
+
+    {% block contents %}
+    <!--Bootstrapのグリッドシステム-->
+    <hr>
+    <div class="container">
+        <div class="row">
+        <!--行を配置-->
+            <div class="col offset-2">
+            <!--列の余白にcol offset-2を入れる-->
+                <h3>サインアップ</h3>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <!--formメソッドからフィールドを取り出す-->
+                    {% for field in form %}
+                    <p>
+                        <!--ラベルを出力-->
+                        {{ field.label_tag }}<br>
+                        
+                        <!--inputタグを出力-->
+                        {{ field }}
+
+                        <!--help_textを出力-->
+                        {% if field.help_text %}
+                            <small style="color: gray">{{ field.help_text }}</small>
+                        {% endif %}
+
+                        <!--エラー発生時のテキストerrorsを出力-->
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                        <p style="color: red">
+                            ※メールアドレスはパスワードをリセットする際に必要となりますので、
+                            登録しておくことをお勧めします。
+                        </p>
+
+                        <!--Sing upボタンを出力-->
+                        <input type="submit" value="Sing up">
+                </form>
+                
+                <!--トップページのリンクテキスト-->
+                <br>
+                <p><a href="{% url 'photo:index' %}">
+                    登録を辞めてトップページに戻る</a>
+                </p>
+            </div>     
+        </div>
+    </div>
+    {% endblock %}

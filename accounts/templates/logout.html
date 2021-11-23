@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Log out{% endblock %}
+
+    {% block contents %}
+    <!--Bootstrapのグリッドシステム-->
+    <div class="row">
+        <!--列の左右の余白にoffset-4を入れる
+            列のpaddingはpy-4-->
+        <div class="col offset-4 py-4">
+
+        <h3>ログアウトしました</h3>
+        <!--トップページのリンクテキスト-->
+        <p><a href="{% url 'photo:index' %}">トップページへ</a></p>
+    {% endblock %}
+        

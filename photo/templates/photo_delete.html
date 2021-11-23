@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Photo Delete{% endblock %}
+    
+    
+    {% block contents %}
+        <!--Bootstrapのグリッドシステム-->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col offset-3">
+
+                    <form action="" method="post">
+                        
+                        
+                        <!--タイトル-->
+                        <h2>{{object.title}}</h2>
+
+                        <!--コメント-->
+                        <p>{{object.comment}}</p>
+                        <br>
+
+                        <!--投稿日時-->
+                        <p>{{object.posted_at}}に投稿</p>
+
+                        <!--一枚目の写真-->
+                        <div class="img_class">
+                            <p><img class="img1" src="{{object.image1.url}}"></img></p>
+
+                            <!--二枚目の写真 もしあったら-->
+                            
+                            {% if object.image2 %}
+                                <p><img class="img1" src="{{object.image2.url}}"></img></p>
+                            {% endif %}
+                        </div>
+
+                        <p>こちらのページを削除します</p>
+                        <button type="submit" class="btn btn-primary">削除</button>
+                        {% csrf_token %}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+        
